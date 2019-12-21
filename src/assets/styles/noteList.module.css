@@ -1,0 +1,5 @@
+.noteListWrapper {
+  overflow-y: auto;
+  background: #eee;
+  flex: 2;
+}

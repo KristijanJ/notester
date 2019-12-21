@@ -1,0 +1,4 @@
+.activeNoteWrapper {
+  overflow-y: auto;
+  flex: 6;
+}

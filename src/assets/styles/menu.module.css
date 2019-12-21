@@ -1,0 +1,7 @@
+.menuWrapper {
+  overflow-y: auto;
+  background: #021e22;
+  flex: 1;
+  color: #949d9f;
+  position: relative;
+}
