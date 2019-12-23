@@ -3,3 +3,60 @@
   background: #eee;
   flex: 2;
 }
+
+.chosenCategory {
+  display: flex;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+  margin: 0 2px 8px 2px;
+  box-shadow: 0px 0px 3px #cbd9dc;
+  min-height: 60px;
+}
+
+.chosenCategory p {
+  font-weight: 300;
+}
+
+.noteCard {
+  background: #fff;
+  display: inline-block;
+  margin: 3px 4px;
+  padding: 8px 8px 11px 8px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px #cbd9dc;
+  color: #222c2e;
+  border-left: 3px solid #fff;
+  cursor: pointer;
+}
+
+.noteCard h3 {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 2px;
+  font-weight: 400;
+  font-size: 14px;
+
+}
+
+.noteCard p {
+  width: 100%;
+  font-weight: 200;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  line-height: 1.4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+}
+
+.noteCard:hover {
+  background: #fafeff;
+  border-left: 3px solid #086776;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

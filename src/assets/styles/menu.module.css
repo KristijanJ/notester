@@ -5,3 +5,76 @@
   color: #949d9f;
   position: relative;
 }
+
+.searchContainer {
+  width: 100%;
+}
+
+.searchInputContainer {
+  display: flex;
+  background: #fff;
+  margin: 16px 8px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchInputContainer input {
+  width: 120%;
+  padding: 0.5rem;
+  outline: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: none;
+  position: relative;
+  color: #021e22;
+  background: #fff;
+
+}
+
+.searchInputContainer .searchIcon {
+  font-size: 14px;
+  background: #fff;
+  border: none;
+  position: relative;
+  right: 8px;
+}
+
+.noteFilters {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.noteFiltersLi {
+  padding: 8px;
+  margin: 2px 10px 2px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-left: 3px solid #021e22;
+  cursor: pointer;
+  font-size: 14px;
+  color: #949d9f;
+}
+
+.noteFiltersLi:hover {
+  border-left: 3px solid #d8e5e7;
+  color: #d8e5e7;
+}
+
+.noteFiltersLiActive {
+  border-left: 3px solid #d8e5e7;
+  color: #d8e5e7;
+}
+
+.noteFiltersLiActive .noteFilterText {
+  font-weight: 300;
+}
+
+.noteFilterIcon {
+  width: 40px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

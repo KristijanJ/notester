@@ -1,0 +1,12 @@
+.noActiveNoteWrapper{
+    flex: 6;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.noActiveNoteWrapper h2 {
+    font-size: 3rem;
+}

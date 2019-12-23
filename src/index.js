@@ -11,7 +11,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/notes" render={() => <App />} />
+        <Route path="/notes" render={(props) => <App {...props} />} />
         <Route path="/">
           <Redirect to="/notes"/>
         </Route>
