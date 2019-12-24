@@ -52,7 +52,7 @@ const initState = {
     }
   ],
   note: {},
-  selectedFilter: ""
+  selectedFilter: "All Notes"
 };
 
 const notesReducer = (state = initState, action) => {
@@ -71,6 +71,36 @@ const notesReducer = (state = initState, action) => {
         ...state,
         note: action.payload
       };
+
+    case "ADD_NOTE":
+      return {
+        ...state,
+        notes: [
+          ...state.notes,
+          {
+            id: state.notes.length + 1,
+            title: "",
+            body: "",
+            createdAt: "15/08/2019",
+            category: "inbox",
+            starred: false,
+            deleted: false
+          }
+        ]
+      }
+
+    case "DELETE_NOTE":
+      return {
+        ...state,
+        notes: state.notes.map(note => note.id === action.payload.id ? { ...note, deleted: true } : note)
+      }
+
+    // case "DELETE_NOTE":
+    //   return {
+    //     ...state,
+    //     notes: state.notes.filter(note => note.id !== action.payload.id)
+    //   }
+
     case "HANDLE_TITLE_CHANGE":
       return {
         ...state,

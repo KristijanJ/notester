@@ -10,26 +10,10 @@ import styles from "../assets/styles/menu.module.css";
 class NoteFilters extends Component {
 
   componentDidMount() {
-    // let allNotes = this.props.notes.filter(note => !note.deleted);
-    this.props.filterNotes("All Notes");
+    this.props.filterNotes(this.props.selectedFilter);
   }
 
   handleOnClick = event => {
-    // if (event.target.innerText === "All Notes") {
-    //   let allNotes = this.props.notes.filter(note => !note.deleted);
-    //   this.props.filterAllNotes(allNotes);
-    //   this.setState({ activeFilter: 'All Notes' })
-    // }
-    // if (event.target.innerText === "Starred") {
-    //   let starredNotes = this.props.notes.filter(note => note.starred);
-    //   this.props.filterStarredNotes(starredNotes);
-    //   this.setState({ activeFilter: 'Starred' })
-    // }
-    // if (event.target.innerText === "Deleted") {
-    //   let deletedNotes = this.props.notes.filter(note => note.deleted);
-    //   this.props.filterDeletedNotes(deletedNotes);
-    //   this.setState({ activeFilter: 'Deleted' })
-    // }
     let selectedFitler = event.target.innerText;
     this.props.filterNotes(selectedFitler);
   };

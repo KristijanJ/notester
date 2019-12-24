@@ -2,10 +2,12 @@ import React, { Component } from "react";
 
 // REDUX
 import { connect } from "react-redux";
-import { fetchNote } from "../store/actions/notesActions";
-import { handleTitleChange } from "../store/actions/notesActions";
-import { handleBodyChange } from "../store/actions/notesActions";
-import { updateNote } from "../store/actions/notesActions";
+import {
+  deleteNote,
+  handleBodyChange,
+  handleTitleChange,
+  fetchNote
+} from "../store/actions/notesActions";
 
 // STYLES
 import styles from "../assets/styles/activeNote.module.css";
@@ -31,7 +33,10 @@ class ActiveNote extends Component {
                 <i className="fas fa-check"></i>
                 <i className="far fa-copy"></i>
                 <i className="fas fa-arrows-alt"></i>
-                <i className="far fa-trash-alt"></i>
+                <i
+                  className="far fa-trash-alt"
+                  onClick={() => this.props.deleteNote(this.props.note)}
+                ></i>
               </div>
             </div>
             <div id={styles.toolbar}>
@@ -72,8 +77,8 @@ const mapDispatchToProps = dispatch => {
     handleBodyChange: (e, note) => {
       dispatch(handleBodyChange(e, note));
     },
-    updateNote: note => {
-      dispatch(updateNote(note));
+    deleteNote: note => {
+      dispatch(deleteNote(note));
     }
   };
 };

@@ -18,6 +18,19 @@ export const fetchNote = note => {
   };
 };
 
+export const addNewNote = () => {
+  return {
+    type: "ADD_NOTE"
+  };
+};
+
+export const deleteNote = note => {
+  return {
+    type: "DELETE_NOTE",
+    payload: note
+  };
+};
+
 export const handleTitleChange = (e, note) => {
   return {
     type: "HANDLE_TITLE_CHANGE",
@@ -35,12 +48,5 @@ export const handleBodyChange = (e, note) => {
       inputValue: e.target.value,
       note
     }
-  };
-};
-
-export const updateNote = note => {
-  return {
-    type: "UPDATE_NOTE",
-    payload: note
   };
 };

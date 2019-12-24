@@ -7,7 +7,7 @@ import NoActiveNote from './NoActiveNote';
 
 // REDUX
 import { connect } from 'react-redux';
-import { fetchAllNotes } from '../store/actions/notesActions';
+import { fetchAllNotes, addNewNote } from '../store/actions/notesActions';
 
 // CSS STYLES
 import styles from '../assets/styles/app.module.css';
@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className={styles.appContainer}>
-        <Menu />
+        <Menu addNewNote={this.props.addNewNote} />
         <NoteList />
         <Switch>
           <Route path="/notes/:id" render={(props) => <ActiveNote {...props} />} />
@@ -42,6 +42,9 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchAllNotes: () => {
       dispatch(fetchAllNotes());
+    },
+    addNewNote: () => {
+      dispatch(addNewNote());
     }
   }
 }

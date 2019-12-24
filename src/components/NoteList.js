@@ -10,6 +10,10 @@ import { Route } from "react-router-dom";
 
 class NoteList extends Component {
 
+  componentWillReceiveProps(){
+    console.log('NoteList receiving props')
+  }
+
   openNote = (note, history) => {
     history.push(`/notes/${note.id}`);
     this.props.fetchNote(note);
