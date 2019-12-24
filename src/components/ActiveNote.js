@@ -50,6 +50,12 @@ class ActiveNote extends Component {
               id={styles.editor}
               value={this.props.note.body}
             />
+            {this.props.note.deleted ? (
+              <div className={styles.deletedNote}>
+                <p>Note deleted!</p>
+                <button>Take out of trash</button>
+              </div>
+            ) : null}
           </>
         ) : (
           <h2>Loading...</h2>

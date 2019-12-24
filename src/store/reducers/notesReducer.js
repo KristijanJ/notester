@@ -92,7 +92,11 @@ const notesReducer = (state = initState, action) => {
     case "DELETE_NOTE":
       return {
         ...state,
-        notes: state.notes.map(note => note.id === action.payload.id ? { ...note, deleted: true } : note)
+        notes: state.notes.map(note => note.id === action.payload.id ? { ...note, deleted: true } : note),
+        note: {
+          ...state.note,
+          deleted: true
+        }
       }
 
     // case "DELETE_NOTE":
