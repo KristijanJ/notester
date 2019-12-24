@@ -4,24 +4,10 @@ export const fetchAllNotes = () => {
   };
 };
 
-export const filterAllNotes = notes => {
+export const filterNotes = selectedFilter => {
   return {
-    type: "FILTER_ALL_NOTES",
-    payload: notes
-  };
-};
-
-export const filterStarredNotes = notes => {
-  return {
-    type: "FILTER_STARRED_NOTES",
-    payload: notes
-  };
-};
-
-export const filterDeletedNotes = notes => {
-  return {
-    type: "FILTER_DELETED_NOTES",
-    payload: notes
+    type: "FILTER_NOTES",
+    payload: selectedFilter
   };
 };
 
@@ -32,10 +18,13 @@ export const fetchNote = note => {
   };
 };
 
-export const handleTitleChange = e => {
+export const handleTitleChange = (e, note) => {
   return {
     type: "HANDLE_TITLE_CHANGE",
-    payload: e.target.value
+    payload: {
+      inputValue: e.target.value,
+      note
+    }
   };
 };
 

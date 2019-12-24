@@ -2,6 +2,8 @@
   overflow-y: auto;
   background: #eee;
   flex: 2;
+  display: flex;
+  flex-direction: column;
 }
 
 .chosenCategory {
@@ -29,17 +31,17 @@
   color: #222c2e;
   border-left: 3px solid #fff;
   cursor: pointer;
+  position: relative;
 }
 
-.noteCard h3 {
-  width: 100%;
+.noteCard .noteTitle {
+  width: 90%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding-bottom: 2px;
   font-weight: 400;
   font-size: 14px;
-
 }
 
 .noteCard p {
@@ -59,4 +61,10 @@
   border-left: 3px solid #086776;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.star {
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }

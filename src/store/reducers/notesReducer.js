@@ -51,8 +51,8 @@ const initState = {
       deleted: true
     }
   ],
-  filteredNotes: [],
-  note: {}
+  note: {},
+  selectedFilter: ""
 };
 
 const notesReducer = (state = initState, action) => {
@@ -60,22 +60,10 @@ const notesReducer = (state = initState, action) => {
     case "FETCH_ALL_NOTES":
       return state;
 
-    case "FILTER_ALL_NOTES":
+    case "FILTER_NOTES":
       return {
         ...state,
-        filteredNotes: action.payload
-      };
-
-    case "FILTER_STARRED_NOTES":
-      return {
-        ...state,
-        filteredNotes: action.payload
-      };
-
-    case "FILTER_DELETED_NOTES":
-      return {
-        ...state,
-        filteredNotes: action.payload
+        selectedFilter: action.payload
       };
 
     case "FETCH_NOTE":
@@ -88,17 +76,10 @@ const notesReducer = (state = initState, action) => {
         ...state,
         note: {
           ...state.note,
-          title: action.payload
-        }
-      };
-    case "UPDATE_NOTE":
-      console.log(action.payload.id)
-      let notes = {...state.notes};
-      notes[action.payload.id] = action.payload;
-      return {
-        ...state,
-        notes
-      };
+          title: action.payload.inputValue
+        },
+        notes: state.notes.map(note => note.id === action.payload.note.id ? { ...note, title: action.payload.inputValue } : note)
+      }
 
     default:
       return state;

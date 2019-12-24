@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 
 // REDUX
 import { connect } from "react-redux";
@@ -23,11 +21,11 @@ class ActiveNote extends Component {
           <div className={styles.noteDetails}>
             <input
               className={styles.noteTitle}
-              onChange={this.props.handleTitleChange}
+              onChange={(e) => this.props.handleTitleChange(e, this.props.note)}
               placeholder="Untitled"
               value={this.props.note.title}
             ></input>
-            <div className="note-controls-icons">
+            <div className={styles.noteControlsIcons}>
               <i onClick={() => this.props.updateNote(this.props.note)} className="fas fa-check"></i>
               <i className="far fa-copy"></i>
               <i className="fas fa-arrows-alt"></i>
@@ -54,12 +52,11 @@ const mapDispatchToProps = dispatch => {
     fetchNote: note => {
       dispatch(fetchNote(note));
     },
-    handleTitleChange: e => {
-      dispatch(handleTitleChange(e));
+    handleTitleChange: (e, note) => {
+      dispatch(handleTitleChange(e, note));
     },
     updateNote: note => {
       dispatch(updateNote(note));
-      dispatch(fetchNote(note));
     }
   };
 };
