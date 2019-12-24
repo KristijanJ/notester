@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchNote } from "../store/actions/notesActions";
 import { handleTitleChange } from "../store/actions/notesActions";
+import { handleBodyChange } from "../store/actions/notesActions";
 import { updateNote } from "../store/actions/notesActions";
 
 // STYLES
@@ -18,20 +19,33 @@ class ActiveNote extends Component {
     return (
       <div className={styles.activeNoteWrapper}>
         {this.props.note ? (
-          <div className={styles.noteDetails}>
-            <input
-              className={styles.noteTitle}
-              onChange={(e) => this.props.handleTitleChange(e, this.props.note)}
-              placeholder="Untitled"
-              value={this.props.note.title}
-            ></input>
-            <div className={styles.noteControlsIcons}>
-              <i onClick={() => this.props.updateNote(this.props.note)} className="fas fa-check"></i>
+          <>
+            <div className={styles.noteDetails}>
+              <input
+                className={styles.noteTitle}
+                onChange={e => this.props.handleTitleChange(e, this.props.note)}
+                placeholder="Untitled"
+                value={this.props.note.title}
+              ></input>
+              <div className={styles.noteControlsIcons}>
+                <i className="fas fa-check"></i>
+                <i className="far fa-copy"></i>
+                <i className="fas fa-arrows-alt"></i>
+                <i className="far fa-trash-alt"></i>
+              </div>
+            </div>
+            <div id={styles.toolbar}>
+              <i className="fas fa-check"></i>
               <i className="far fa-copy"></i>
               <i className="fas fa-arrows-alt"></i>
               <i className="far fa-trash-alt"></i>
             </div>
-          </div>
+            <textarea
+              onChange={e => this.props.handleBodyChange(e, this.props.note)}
+              id={styles.editor}
+              value={this.props.note.body}
+            />
+          </>
         ) : (
           <h2>Loading...</h2>
         )}
@@ -54,6 +68,9 @@ const mapDispatchToProps = dispatch => {
     },
     handleTitleChange: (e, note) => {
       dispatch(handleTitleChange(e, note));
+    },
+    handleBodyChange: (e, note) => {
+      dispatch(handleBodyChange(e, note));
     },
     updateNote: note => {
       dispatch(updateNote(note));

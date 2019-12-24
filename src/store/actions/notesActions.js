@@ -28,6 +28,16 @@ export const handleTitleChange = (e, note) => {
   };
 };
 
+export const handleBodyChange = (e, note) => {
+  return {
+    type: "HANDLE_BODY_CHANGE",
+    payload: {
+      inputValue: e.target.value,
+      note
+    }
+  };
+};
+
 export const updateNote = note => {
   return {
     type: "UPDATE_NOTE",

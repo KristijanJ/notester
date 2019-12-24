@@ -81,6 +81,16 @@ const notesReducer = (state = initState, action) => {
         notes: state.notes.map(note => note.id === action.payload.note.id ? { ...note, title: action.payload.inputValue } : note)
       }
 
+    case "HANDLE_BODY_CHANGE":
+      return {
+        ...state,
+        note: {
+          ...state.note,
+          body: action.payload.inputValue
+        },
+        notes: state.notes.map(note => note.id === action.payload.note.id ? { ...note, body: action.payload.inputValue } : note)
+      }
+
     default:
       return state;
   }

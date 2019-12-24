@@ -35,9 +35,11 @@ class NoteList extends Component {
                   className={styles.noteCard}
                 >
                   <h3 className={styles.noteTitle}>
-                    {note.title ? note.title : "Untitled"}
+                    {note.title ? note.title : <em>Untitled</em>}
                   </h3>
-                  <p>{note.body}</p>
+                  <p>
+                    {note.body ? note.body : <em>Start writing...</em>}
+                  </p>
                   {note.starred ? (
                     <i className={`fas fa-star ${styles.star}`}></i>
                   ) : (
