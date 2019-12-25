@@ -1,9 +1,21 @@
 const initialState = {
-  // user: {
-  //   id: 1,
-  //   email: 'kristijan.j92@gmail.com',
-  //   password: '123123123'
-  // }
+  users: [
+    {
+      id: 1,
+      email: 'kristijan.j92@gmail.com',
+      password: '123'
+    },
+    {
+      id: 2,
+      email: 'kiko@gmail.com',
+      password: '123'
+    },
+    {
+      id: 3,
+      email: 'test@gmail.com',
+      password: '123'
+    },
+  ],
   user: undefined
 }
 
@@ -12,7 +24,23 @@ const userReducer = (state = initialState, action) => {
     case 'LOGIN_USER':
       return {
         ...state,
-        user: action.payload
+        user: state.users.filter(user => user.email === action.payload.email)
+      }
+
+    case 'REGISTER_USER':
+      return {
+        ...state,
+        users: [
+          ...state.users,
+          {
+            id: state.users.length + 1,
+            ...action.payload
+          }
+        ],
+        user: {
+          id: state.users.length + 1,
+          ...action.payload
+        }
       }
   
     default:
