@@ -16,7 +16,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className={styles.appContainer}>
+      <div>
         {this.props.user ? (
           <Notes />
         ) : (
