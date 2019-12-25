@@ -24,7 +24,7 @@ const userReducer = (state = initialState, action) => {
     case 'LOGIN_USER':
       return {
         ...state,
-        user: state.users.filter(user => user.email === action.payload.email)
+        user: state.users.filter(user => user.email === action.payload.email)[0]
       }
 
     case 'REGISTER_USER':

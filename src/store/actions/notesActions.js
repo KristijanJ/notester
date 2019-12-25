@@ -1,6 +1,7 @@
-export const fetchAllNotes = () => {
+export const fetchAllNotes = (user) => {
   return {
-    type: "FETCH_ALL_NOTES"
+    type: "FETCH_ALL_NOTES",
+    payload: user
   };
 };
 
@@ -18,10 +19,13 @@ export const fetchNote = note => {
   };
 };
 
-export const addNewNote = (selectedFilter) => {
+export const addNewNote = (user, selectedFilter) => {
   return {
     type: "ADD_NOTE",
-    payload: selectedFilter
+    payload: {
+      user,
+      selectedFilter
+    }
   };
 };
 

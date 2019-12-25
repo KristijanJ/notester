@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store";
 
 import App from "./components/App";
-import UserForm from "./components/UserFrom";
 
 ReactDOM.render(
   <Provider store={store}>

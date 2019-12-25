@@ -18,7 +18,7 @@ class NoteList extends Component {
 
   handleAddNewNote = (props) => {
     console.log(props.selectedFilter)
-    this.props.addNewNote(props.selectedFilter);
+    this.props.addNewNote(this.props.user, props.selectedFilter);
   }
 
   render() {

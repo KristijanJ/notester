@@ -8,7 +8,8 @@ const initState = {
       createdAt: "21/12/2019",
       category: "personal",
       starred: false,
-      deleted: false
+      deleted: false,
+      author: 'kiko@gmail.com'
     },
     {
       id: 2,
@@ -18,7 +19,8 @@ const initState = {
       createdAt: "18/05/2019",
       category: "work",
       starred: false,
-      deleted: false
+      deleted: false,
+      author: 'kiko@gmail.com'
     },
     {
       id: 3,
@@ -28,7 +30,8 @@ const initState = {
       createdAt: "03/02/2019",
       category: "personal",
       starred: true,
-      deleted: false
+      deleted: false,
+      author: 'test@gmail.com'
     },
     {
       id: 4,
@@ -38,7 +41,8 @@ const initState = {
       createdAt: "24/06/2019",
       category: "personal",
       starred: true,
-      deleted: false
+      deleted: false,
+      author: 'kiko@gmail.com'
     },
     {
       id: 5,
@@ -48,7 +52,8 @@ const initState = {
       createdAt: "15/08/2019",
       category: "inbox",
       starred: false,
-      deleted: true
+      deleted: true,
+      author: 'kiko@gmail.com'
     }
   ],
   note: {},
@@ -58,7 +63,13 @@ const initState = {
 const notesReducer = (state = initState, action) => {
   switch (action.type) {
     case "FETCH_ALL_NOTES":
-      return state;
+      console.log(action.payload);
+      let notesByUser = state.notes.filter(note => note.author === action.payload.email)
+      console.log('notesByUser', notesByUser);
+      return {
+        ...state,
+        notes: notesByUser
+      }
 
     case "FILTER_NOTES":
       return {
@@ -83,8 +94,9 @@ const notesReducer = (state = initState, action) => {
             body: "",
             createdAt: "15/08/2019",
             category: "inbox",
-            starred: action.payload === "Starred" ? true : false,
-            deleted: false
+            starred: action.payload.selectedFilter === "Starred" ? true : false,
+            deleted: false,
+            author: action.payload.user.email
           }
         ]
       }

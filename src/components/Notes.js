@@ -14,7 +14,7 @@ import styles from "../assets/styles/app.module.css";
 
 class Notes extends Component {
   componentDidMount() {
-    this.props.fetchAllNotes();
+    this.props.fetchAllNotes(this.props.user);
   }
 
   render() {
@@ -47,11 +47,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAllNotes: () => {
-      dispatch(fetchAllNotes());
+    fetchAllNotes: (user) => {
+      dispatch(fetchAllNotes(user));
     },
-    addNewNote: selectedFilter => {
-      dispatch(addNewNote(selectedFilter));
+    addNewNote: (user, selectedFilter) => {
+      dispatch(addNewNote(user, selectedFilter));
     }
   };
 };

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
 import Notes from "./Notes";
 import UserForm from "./UserFrom";
 
@@ -12,7 +11,7 @@ import styles from "../assets/styles/app.module.css";
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchAllNotes();
+    // this.props.fetchAllNotes(this.props.user);
   }
 
   render() {
