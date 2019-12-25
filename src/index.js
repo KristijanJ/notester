@@ -6,15 +6,13 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 
 import App from "./components/App";
+import UserForm from "./components/UserFrom";
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/notes" render={(props) => <App {...props} />} />
-        <Route path="/">
-          <Redirect to="/notes"/>
-        </Route>
+        <Route path="/" render={(props) => <App {...props} />} />
       </Switch>
     </BrowserRouter>
   </Provider>,

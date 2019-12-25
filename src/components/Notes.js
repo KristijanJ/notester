@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
-import Notes from "./Notes";
-import UserForm from "./UserFrom";
+import { Switch, Route, Redirect } from "react-router-dom";
+import Menu from "./Menu";
+import NoteList from "./NoteList";
+import ActiveNote from "./ActiveNote";
+import NoActiveNote from "./NoActiveNote";
 
 // REDUX
 import { connect } from "react-redux";
@@ -10,7 +12,7 @@ import { fetchAllNotes, addNewNote } from "../store/actions/notesActions";
 // CSS STYLES
 import styles from "../assets/styles/app.module.css";
 
-class App extends Component {
+class Notes extends Component {
   componentDidMount() {
     this.props.fetchAllNotes();
   }
@@ -18,11 +20,18 @@ class App extends Component {
   render() {
     return (
       <div className={styles.appContainer}>
-        {this.props.user ? (
-          <Notes />
-        ) : (
-          <UserForm />
-        )}
+        <Menu />
+        <NoteList {...this.props} addNewNote={this.props.addNewNote} />
+        <Switch>
+          <Route
+            path="/notes/:id"
+            render={props => <ActiveNote {...props} />}
+          />
+          <Route path="/notes" render={() => <NoActiveNote />} />
+          <Route path="/">
+            <Redirect to="/notes" />
+          </Route>
+        </Switch>
       </div>
     );
   }
@@ -47,4 +56,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Notes);
