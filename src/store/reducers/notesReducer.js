@@ -83,7 +83,7 @@ const notesReducer = (state = initState, action) => {
             body: "",
             createdAt: "15/08/2019",
             category: "inbox",
-            starred: false,
+            starred: action.payload === "Starred" ? true : false,
             deleted: false
           }
         ]

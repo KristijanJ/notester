@@ -18,9 +18,10 @@ export const fetchNote = note => {
   };
 };
 
-export const addNewNote = () => {
+export const addNewNote = (selectedFilter) => {
   return {
-    type: "ADD_NOTE"
+    type: "ADD_NOTE",
+    payload: selectedFilter
   };
 };
 

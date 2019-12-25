@@ -68,3 +68,24 @@
   top: 8px;
   right: 8px;
 }
+
+.addNewNoteContainer {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #949d9f;
+  justify-content: center;
+}
+
+.addNewNoteContainer i {
+  padding: 8px;
+  font-size: 20px;
+}
+
+.addNewNoteText {
+  font-size: 14px;
+}
+
+.addNewNoteContainer:hover {
+  color: #333;
+}

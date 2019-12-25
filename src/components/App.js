@@ -20,8 +20,8 @@ class App extends Component {
   render() {
     return (
       <div className={styles.appContainer}>
-        <Menu addNewNote={this.props.addNewNote} />
-        <NoteList />
+        <Menu />
+        <NoteList {...this.props} addNewNote={this.props.addNewNote} />
         <Switch>
           <Route path="/notes/:id" render={(props) => <ActiveNote {...props} />} />
           <Route path="/notes/" render={() => <NoActiveNote />} />
@@ -43,8 +43,8 @@ const mapDispatchToProps = dispatch => {
     fetchAllNotes: () => {
       dispatch(fetchAllNotes());
     },
-    addNewNote: () => {
-      dispatch(addNewNote());
+    addNewNote: (selectedFilter) => {
+      dispatch(addNewNote(selectedFilter));
     }
   }
 }

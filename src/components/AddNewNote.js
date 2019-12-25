@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "../assets/styles/menu.module.css";
+import styles from "../assets/styles/noteList.module.css";
 
 class AddNewNote extends Component {
   render() {

@@ -7,17 +7,19 @@ import styles from "../assets/styles/noteList.module.css";
 import { connect } from "react-redux";
 import { fetchNote } from "../store/actions/notesActions";
 import { Route } from "react-router-dom";
+import AddNewNote from "./AddNewNote";
 
 class NoteList extends Component {
-
-  componentWillReceiveProps(){
-    console.log('NoteList receiving props')
-  }
 
   openNote = (note, history) => {
     history.push(`/notes/${note.id}`);
     this.props.fetchNote(note);
   };
+
+  handleAddNewNote = (props) => {
+    console.log(props.selectedFilter)
+    this.props.addNewNote(props.selectedFilter);
+  }
 
   render() {
     let filteredNotes = [];
@@ -29,6 +31,7 @@ class NoteList extends Component {
         <div className={styles.chosenCategory}>
           <p>Inbox</p>
         </div>
+        {this.props.selectedFilter !== "Deleted" ? <AddNewNote addNewNote={() => this.handleAddNewNote(this.props)} /> : null}
         {filteredNotes.map(note => {
           return (
             <Route
